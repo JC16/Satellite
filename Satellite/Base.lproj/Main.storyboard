@@ -34,15 +34,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-ew-W60">
-                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-ew-W60">
+                                <rect key="frame" x="0.0" y="515" width="600" height="85"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="Xpy-vh-wA4" kind="showDetail" identifier="Details" id="dpc-1D-whO"/>
+                                    <segue destination="Xpy-vh-wA4" kind="show" identifier="Details" id="e0g-Au-b6O"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pxe-hj-1MR">
-                                <rect key="frame" x="39" y="64" width="523" height="449"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="449"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="449" id="P68-0u-uRY"/>
                                 </constraints>
@@ -51,14 +51,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pxe-hj-1MR" firstAttribute="centerY" secondItem="j0h-re-gmA" secondAttribute="centerY" constant="-11.5" id="4h6-6s-OZC"/>
-                            <constraint firstItem="pxe-hj-1MR" firstAttribute="leading" secondItem="j0h-re-gmA" secondAttribute="leading" constant="39" id="L2v-eO-Eg8"/>
-                            <constraint firstItem="pxe-hj-1MR" firstAttribute="trailing" secondItem="ceL-ew-W60" secondAttribute="trailing" constant="-38" id="cwF-QG-2az"/>
+                            <constraint firstItem="pxe-hj-1MR" firstAttribute="leading" secondItem="j0h-re-gmA" secondAttribute="leading" id="L2v-eO-Eg8"/>
+                            <constraint firstItem="pxe-hj-1MR" firstAttribute="trailing" secondItem="ceL-ew-W60" secondAttribute="trailing" id="cwF-QG-2az"/>
                             <constraint firstItem="ceL-ew-W60" firstAttribute="top" secondItem="pxe-hj-1MR" secondAttribute="bottom" constant="57" id="de0-0D-js0"/>
                             <constraint firstItem="pxe-hj-1MR" firstAttribute="top" secondItem="8iQ-Md-Xkz" secondAttribute="bottom" id="f05-st-awg"/>
                             <constraint firstItem="6OK-hl-XfV" firstAttribute="top" secondItem="ceL-ew-W60" secondAttribute="bottom" constant="27" id="hdu-Qx-AK5"/>
                             <constraint firstItem="6OK-hl-XfV" firstAttribute="top" secondItem="ceL-ew-W60" secondAttribute="bottom" id="sh8-Hw-TEE"/>
-                            <constraint firstAttribute="trailing" secondItem="pxe-hj-1MR" secondAttribute="trailing" constant="38" id="ylj-lV-U0k"/>
-                            <constraint firstItem="pxe-hj-1MR" firstAttribute="leading" secondItem="ceL-ew-W60" secondAttribute="leading" constant="39" id="zpo-j5-WvQ"/>
+                            <constraint firstAttribute="trailing" secondItem="pxe-hj-1MR" secondAttribute="trailing" id="ylj-lV-U0k"/>
+                            <constraint firstItem="pxe-hj-1MR" firstAttribute="leading" secondItem="ceL-ew-W60" secondAttribute="leading" id="zpo-j5-WvQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -90,10 +90,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uhc-Q5-P5n">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uhc-Q5-P5n">
                                 <rect key="frame" x="162" y="117" width="277" height="257"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-hb-kUa">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-hb-kUa">
                                         <rect key="frame" x="0.0" y="0.0" width="277" height="257"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="277" id="ciB-sC-Kvd"/>
@@ -128,7 +128,6 @@
                             <constraint firstItem="ljF-1s-LVm" firstAttribute="leading" secondItem="J2e-42-UmB" secondAttribute="leadingMargin" id="juP-Jf-Bf9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qtK-2m-pCW"/>
                     <connections>
                         <outlet property="DateLabel" destination="ljF-1s-LVm" id="AJU-oS-any"/>
                         <outlet property="Image" destination="8kN-hb-kUa" id="Jum-6I-zom"/>
