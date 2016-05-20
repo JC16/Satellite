@@ -15,12 +15,68 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Xpy-vh-wA4" kind="relationship" relationship="rootViewController" id="svr-7K-WB5"/>
+                        <segue destination="ThV-45-zaw" kind="relationship" relationship="rootViewController" id="O81-uL-dqT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BoW-UP-SGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-238" y="450"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="TP5-9q-omW">
+            <objects>
+                <viewController id="ThV-45-zaw" customClass="MapViewController" customModule="Satellite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8iQ-Md-Xkz"/>
+                        <viewControllerLayoutGuide type="bottom" id="6OK-hl-XfV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j0h-re-gmA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-ew-W60">
+                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Xpy-vh-wA4" kind="showDetail" id="dpc-1D-whO"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pxe-hj-1MR">
+                                <rect key="frame" x="39" y="64" width="523" height="449"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="449" id="P68-0u-uRY"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pxe-hj-1MR" firstAttribute="centerY" secondItem="j0h-re-gmA" secondAttribute="centerY" constant="-11.5" id="4h6-6s-OZC"/>
+                            <constraint firstItem="pxe-hj-1MR" firstAttribute="leading" secondItem="j0h-re-gmA" secondAttribute="leading" constant="39" id="L2v-eO-Eg8"/>
+                            <constraint firstItem="pxe-hj-1MR" firstAttribute="trailing" secondItem="ceL-ew-W60" secondAttribute="trailing" constant="-38" id="cwF-QG-2az"/>
+                            <constraint firstItem="ceL-ew-W60" firstAttribute="top" secondItem="pxe-hj-1MR" secondAttribute="bottom" constant="57" id="de0-0D-js0"/>
+                            <constraint firstItem="pxe-hj-1MR" firstAttribute="top" secondItem="8iQ-Md-Xkz" secondAttribute="bottom" id="f05-st-awg"/>
+                            <constraint firstItem="6OK-hl-XfV" firstAttribute="top" secondItem="ceL-ew-W60" secondAttribute="bottom" constant="27" id="hdu-Qx-AK5"/>
+                            <constraint firstItem="6OK-hl-XfV" firstAttribute="top" secondItem="ceL-ew-W60" secondAttribute="bottom" id="sh8-Hw-TEE"/>
+                            <constraint firstAttribute="trailing" secondItem="pxe-hj-1MR" secondAttribute="trailing" constant="38" id="ylj-lV-U0k"/>
+                            <constraint firstItem="pxe-hj-1MR" firstAttribute="leading" secondItem="ceL-ew-W60" secondAttribute="leading" constant="39" id="zpo-j5-WvQ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hdu-Qx-AK5"/>
+                                <exclude reference="sh8-Hw-TEE"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="gV1-dJ-iXf"/>
+                    <connections>
+                        <outlet property="MapView" destination="pxe-hj-1MR" id="HIe-aC-Gqc"/>
+                        <outlet property="ViewLocationBtn" destination="ceL-ew-W60" id="J9o-jw-uuS"/>
+                        <outlet property="mapView" destination="pxe-hj-1MR" id="IKh-YC-Mvs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQH-er-EI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="461" y="452"/>
         </scene>
         <!--Satellite View Controller-->
         <scene sceneID="JsD-Hu-4br">
@@ -80,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2he-a4-Htn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443" y="450"/>
+            <point key="canvasLocation" x="1188" y="450"/>
         </scene>
     </scenes>
 </document>

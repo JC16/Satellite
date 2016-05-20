@@ -14,6 +14,7 @@
 		29F656C21CEDCEFB0047D07C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F656C01CEDCEFB0047D07C /* LaunchScreen.storyboard */; };
 		29F656CD1CEDCEFB0047D07C /* SatelliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F656CC1CEDCEFB0047D07C /* SatelliteTests.swift */; };
 		29F656D81CEDD26F0047D07C /* SatelliteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F656D71CEDD26F0047D07C /* SatelliteViewController.swift */; };
+		29F656DA1CEF15100047D07C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F656D91CEF15100047D07C /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		29F656CC1CEDCEFB0047D07C /* SatelliteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteTests.swift; sourceTree = "<group>"; };
 		29F656CE1CEDCEFB0047D07C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29F656D71CEDD26F0047D07C /* SatelliteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatelliteViewController.swift; sourceTree = "<group>"; };
+		29F656D91CEF15100047D07C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				29F656C01CEDCEFB0047D07C /* LaunchScreen.storyboard */,
 				29F656C31CEDCEFB0047D07C /* Info.plist */,
 				29F656D71CEDD26F0047D07C /* SatelliteViewController.swift */,
+				29F656D91CEF15100047D07C /* MapViewController.swift */,
 			);
 			path = Satellite;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				29F656D81CEDD26F0047D07C /* SatelliteViewController.swift in Sources */,
 				29F656BA1CEDCEFB0047D07C /* ViewController.swift in Sources */,
 				29F656B81CEDCEFB0047D07C /* AppDelegate.swift in Sources */,
+				29F656DA1CEF15100047D07C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
