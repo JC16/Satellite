@@ -22,7 +22,8 @@ class SatelliteViewController: UIViewController {
     
     let baseURL = "https://api.nasa.gov/planetary/earth/imagery"
     
-
+    var cloudScore = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,7 +84,8 @@ class SatelliteViewController: UIViewController {
                 }
                 if let date = dict["date"] as? String, img = dict["url"] as? String{
                     
-                //self.fetchImage(img, withDate: date, currentCount: order)
+               // self.DateLabel.text = date
+                self.fetchImage(img)
                     
                                                                 
                 }  else {
@@ -100,6 +102,30 @@ class SatelliteViewController: UIViewController {
         
     }
 
+    
+    func fetchImage(urlString: String)
+    {
+        if let url = NSURL(string: urlString){
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithURL(url, completionHandler: {(data, response, error) in
+                
+                if error != nil {
+                    print("error with image url")
+                }
+                else if let d = data {
+                    print("loading image into the picture")
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.Image.image = UIImage(data: d)
+                        self.Image.contentMode = UIViewContentMode.ScaleAspectFit
+                    })
+                    
+                }
+                
+            })
+            task.resume()
+        }    }
+    
+    
     /*
     // MARK: - Navigation
 
