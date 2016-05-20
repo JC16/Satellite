@@ -47,7 +47,7 @@ class SatelliteViewController: UIViewController {
         
         //Test the Request
         //NASARequest("150.817765",latitude: "-34.528522",date: "2016-05-19")
-        NASARequestSequence("150.817765",latitude: "-34.528522")
+        NASARequestSequence(longitude!,latitude: latitude!)
     }
 
     override func didReceiveMemoryWarning() {

@@ -60,6 +60,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "Details" {
+            if let long = longtitude, lat = latitude {
+                return true
+            }
+        }
+        return false
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Details" {
+            print("long and lat exist")
+          
+            let vC = segue.destinationViewController as! SatelliteViewController
+            vC.longitude = String(format:"%f", longtitude!)
+            vC.latitude = String(format:"%f", latitude!)
+        }
+    }
     
     /*
     // MARK: - Navigation
