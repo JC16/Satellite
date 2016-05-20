@@ -18,8 +18,10 @@ class SatelliteViewController: UIViewController {
     var longitude: String?
     var latitude: String?
     
+    //The api key
     let apiKey = "XG4dQXm9GW70ZMDNcCNFdak5ylRrIvIRbuJ2NRsk"
     
+    //The base url to connect to NASA
     let baseURL = "https://api.nasa.gov/planetary/earth/imagery"
     
     var cloudScore = true
@@ -29,6 +31,7 @@ class SatelliteViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        //Test the Request
         NASARequest("150.817765",latitude: "-34.528522",date: "2016-05-19")
         
     }
@@ -38,6 +41,7 @@ class SatelliteViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Create the NSURL Query Request
     func NASARequest (longitude: String, latitude: String, date: String)
     {
         let urlComponents = NSURLComponents(string: baseURL)
@@ -65,35 +69,40 @@ class SatelliteViewController: UIViewController {
         
         let task = session.dataTaskWithRequest(request,
             completionHandler: {(data, response, error) -> Void in
+                
+                //IF there is an error
                 if error != nil {
                 print("Error trying to GET from NASA \(error)")
                 }
+                //Print the query result from NASA
                 else if let d = data, let r = response as? NSHTTPURLResponse{
                     let result = NSString(data: d, encoding:NSASCIIStringEncoding)!
                     print("query result \(result)")
+                
+                // If status is 200
                 if(r.statusCode == 200){
                 do{
                     //print(response)
                     print("test")
                     //print("current order \(order)")
-                let json = try NSJSONSerialization.JSONObjectWithData(d, options:NSJSONReadingOptions.AllowFragments )
+                    let json = try NSJSONSerialization.JSONObjectWithData(d, options:NSJSONReadingOptions.AllowFragments )
                     //print("current order \(order)")
-                guard let dict : NSDictionary = json as? NSDictionary else {
-                    print("not a dictionary")
-                    return
-                }
-                if let date = dict["date"] as? String, img = dict["url"] as? String{
+                    guard let dict : NSDictionary = json as? NSDictionary else {
+                        print("not a dictionary")
+                        return
+                    }
+                    if let date = dict["date"] as? String, img = dict["url"] as? String{
                     
-               // self.DateLabel.text = date
-                self.fetchImage(img)
+                        // self.DateLabel.text = date
+                        self.fetchImage(img)
                     
                                                                 
-                }  else {
+                    } else {
                         print("date and image not found in json string")
                     }
                 } catch {
                         print("json error")
-                        }
+                    }
                 }
             }
                                                 
