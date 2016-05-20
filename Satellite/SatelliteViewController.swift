@@ -26,6 +26,20 @@ class SatelliteViewController: UIViewController {
     
     var cloudScore = true
     
+    var count: Int = 6
+    var completeLoad: Bool  = false
+    
+    struct ImgInfo
+    {
+        var img : UIImage
+        var url : NSURL
+        var date : String
+    }
+    
+    var ImageHistory = [ImgInfo?](count: 6, repeatedValue: nil)
+    
+    var ImgIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -126,7 +140,7 @@ class SatelliteViewController: UIViewController {
                     if let date = dict["date"] as? String, img = dict["url"] as? String{
                     
                         // self.DateLabel.text = date
-                        self.fetchImage(img)
+                        self.fetchImage(img,date: date, count: order)
                     
                                                                 
                     } else {
@@ -144,7 +158,7 @@ class SatelliteViewController: UIViewController {
     }
 
     //Fetch image from URL
-    func fetchImage(urlString: String)
+    func fetchImage(urlString: String, date: String, count: Int)
     {
         if let url = NSURL(string: urlString){
             let session = NSURLSession.sharedSession()
@@ -157,8 +171,20 @@ class SatelliteViewController: UIViewController {
                     print("loading image into the picture")
                     //Set the imageview
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.Image.image = UIImage(data: d)
-                        self.Image.contentMode = UIViewContentMode.ScaleAspectFit
+                        
+                        let currentImg = ImgInfo(img: UIImage(data: d)!, url: url, date: date)
+                        
+                        self.ImageHistory[count] = currentImg
+                        
+                        self.count--
+                        
+                        if self.count == 0 {
+                            self.completeLoad = true
+                            //self.actInd.stopAnimating()
+                            //self.actInd.removeFromSuperview()
+                            var timer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: Selector("displayImage"), userInfo: nil, repeats: true)
+                            
+                        }
                     })
                     
                 }
@@ -166,6 +192,18 @@ class SatelliteViewController: UIViewController {
             })
             task.resume()
         }
+    }
+    
+    func displayImage()
+    {
+        if ImgIndex == nil || ImgIndex == ImageHistory.count
+        {
+            ImgIndex = 0
+        }
+        self.DateLabel.text = ImageHistory[ImgIndex!]!.date
+        print(ImageHistory[ImgIndex!]?.date)
+        self.Image.image = ImageHistory[ImgIndex!]!.img
+        ImgIndex!++
     }
     
     

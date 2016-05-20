@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -33,16 +34,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-hb-kUa">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uhc-Q5-P5n">
                                 <rect key="frame" x="162" y="117" width="277" height="257"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-hb-kUa">
+                                        <rect key="frame" x="0.0" y="0.0" width="277" height="257"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="277" id="ciB-sC-Kvd"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="277" id="ciB-sC-Kvd"/>
+                                    <constraint firstItem="8kN-hb-kUa" firstAttribute="leading" secondItem="Uhc-Q5-P5n" secondAttribute="leading" id="2oh-JO-HWy"/>
+                                    <constraint firstAttribute="trailing" secondItem="8kN-hb-kUa" secondAttribute="trailing" id="9UV-Mk-FYd"/>
+                                    <constraint firstAttribute="bottom" secondItem="8kN-hb-kUa" secondAttribute="bottom" id="pda-2c-EJ0"/>
+                                    <constraint firstItem="8kN-hb-kUa" firstAttribute="top" secondItem="Uhc-Q5-P5n" secondAttribute="top" id="qwT-zT-7ws"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-1s-LVm">
-                                <rect key="frame" x="279" y="434" width="42" height="21"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-1s-LVm">
+                                <rect key="frame" x="20" y="434" width="560" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="vKA-P5-0bh"/>
+                                    <constraint firstAttribute="width" constant="560" id="W9p-8c-Fkk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -51,11 +63,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8kN-hb-kUa" firstAttribute="centerY" secondItem="J2e-42-UmB" secondAttribute="centerY" constant="-54.5" id="4zV-ae-2Mu"/>
-                            <constraint firstItem="ljF-1s-LVm" firstAttribute="centerX" secondItem="8kN-hb-kUa" secondAttribute="centerX" id="9q2-eD-Ixv"/>
-                            <constraint firstItem="ljF-1s-LVm" firstAttribute="top" secondItem="8kN-hb-kUa" secondAttribute="bottom" constant="60" id="MCa-5K-hs7"/>
-                            <constraint firstItem="Gce-26-jVC" firstAttribute="top" secondItem="ljF-1s-LVm" secondAttribute="bottom" constant="145" id="Skc-o6-blT"/>
-                            <constraint firstItem="8kN-hb-kUa" firstAttribute="centerX" secondItem="J2e-42-UmB" secondAttribute="centerX" id="g1e-PR-M7N"/>
+                            <constraint firstItem="Gce-26-jVC" firstAttribute="top" secondItem="ljF-1s-LVm" secondAttribute="bottom" constant="145" id="59Z-ma-iNk"/>
+                            <constraint firstItem="Uhc-Q5-P5n" firstAttribute="centerX" secondItem="J2e-42-UmB" secondAttribute="centerX" id="7bq-Mx-paM"/>
+                            <constraint firstItem="ljF-1s-LVm" firstAttribute="top" secondItem="Uhc-Q5-P5n" secondAttribute="bottom" constant="60" id="8Hc-zN-cLg"/>
+                            <constraint firstItem="Uhc-Q5-P5n" firstAttribute="centerX" secondItem="ljF-1s-LVm" secondAttribute="centerX" id="B8R-Jj-AOW"/>
+                            <constraint firstItem="Uhc-Q5-P5n" firstAttribute="top" secondItem="8c0-Ee-qXv" secondAttribute="bottom" constant="53" id="JZc-Ks-dew"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ljF-1s-LVm" secondAttribute="trailing" id="b9J-1B-42Y"/>
+                            <constraint firstItem="ljF-1s-LVm" firstAttribute="leading" secondItem="J2e-42-UmB" secondAttribute="leadingMargin" id="juP-Jf-Bf9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qtK-2m-pCW"/>
