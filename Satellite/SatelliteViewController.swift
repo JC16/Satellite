@@ -32,8 +32,8 @@ class SatelliteViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //Test the Request
-        NASARequest("150.817765",latitude: "-34.528522",date: "2016-05-19")
-        
+        //NASARequest("150.817765",latitude: "-34.528522",date: "2016-05-19")
+        NASARequestSequence("150.817765",latitude: "-34.528522")
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,8 +41,40 @@ class SatelliteViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func NASARequestSequence(longitude: String, latitude: String)
+    {
+        let currentDate = NSDate()
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "YYYY-MM-dd"
+        
+        var dateStr = dateFormat.stringFromDate(currentDate)
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let periodComponents = NSDateComponents()
+        
+        var orderIndex = 5
+        
+        for index in 0...5
+        {
+            periodComponents.month = -index
+            let d = calendar.dateByAddingComponents(periodComponents, toDate: currentDate, options: [])
+            
+            if let date = d
+            {
+                dateStr = dateFormat.stringFromDate(date)
+                
+                NASARequest (longitude,latitude: latitude, date: dateStr, order: orderIndex)
+                orderIndex--
+            }
+        }
+        
+        
+    }
+    
+    
     //Create the NSURL Query Request
-    func NASARequest (longitude: String, latitude: String, date: String)
+    func NASARequest (longitude: String, latitude: String, date: String, order: Int)
     {
         let urlComponents = NSURLComponents(string: baseURL)
         
@@ -84,9 +116,9 @@ class SatelliteViewController: UIViewController {
                 do{
                     //print(response)
                     print("test")
-                    //print("current order \(order)")
+                    print("current order \(order)")
                     let json = try NSJSONSerialization.JSONObjectWithData(d, options:NSJSONReadingOptions.AllowFragments )
-                    //print("current order \(order)")
+                    
                     guard let dict : NSDictionary = json as? NSDictionary else {
                         print("not a dictionary")
                         return
@@ -123,7 +155,7 @@ class SatelliteViewController: UIViewController {
                 }
                 else if let d = data {
                     print("loading image into the picture")
-                    //Set the imageview 
+                    //Set the imageview
                     dispatch_async(dispatch_get_main_queue(), {
                         self.Image.image = UIImage(data: d)
                         self.Image.contentMode = UIViewContentMode.ScaleAspectFit
