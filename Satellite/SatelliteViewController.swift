@@ -55,29 +55,36 @@ class SatelliteViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //The NSAS request sequence for load image
     func NASARequestSequence(longitude: String, latitude: String)
     {
+        //Get the current date and format it into YYYY-MM-dd formate
         let currentDate = NSDate()
         let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "YYYY-MM-dd"
         
         var dateStr = dateFormat.stringFromDate(currentDate)
         
+        //Use the calender for add the day period
         let calendar = NSCalendar.currentCalendar()
         
         let periodComponents = NSDateComponents()
         
         var orderIndex = 5
         
+        //Get 5 image request from the NASA
         for index in 0...5
         {
+        
             periodComponents.month = -index
+            //Change the date from 5 times
             let d = calendar.dateByAddingComponents(periodComponents, toDate: currentDate, options: [])
             
             if let date = d
             {
                 dateStr = dateFormat.stringFromDate(date)
                 
+                //Run rhe query request for image
                 NASARequest (longitude,latitude: latitude, date: dateStr, order: orderIndex)
                 orderIndex--
             }
@@ -90,8 +97,11 @@ class SatelliteViewController: UIViewController {
     //Create the NSURL Query Request
     func NASARequest (longitude: String, latitude: String, date: String, order: Int)
     {
+        //The user to connect to NSAS
         let urlComponents = NSURLComponents(string: baseURL)
         
+        
+        //The query item used to get information
         let longitudeQuery :NSURLQueryItem = NSURLQueryItem(name: "lon", value: longitude)
         
         let latitudeQuery: NSURLQueryItem = NSURLQueryItem(name: "lat", value: latitude)
@@ -111,6 +121,8 @@ class SatelliteViewController: UIViewController {
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: url!)
         
+        
+        //The HTTP request to get information
         request.HTTPMethod = "GET"
         
         let task = session.dataTaskWithRequest(request,
@@ -169,7 +181,8 @@ class SatelliteViewController: UIViewController {
                 }
                 else if let d = data {
                     print("loading image into the picture")
-                    //Set the imageview
+                    
+                    //Create a image histroy array for store history image
                     dispatch_async(dispatch_get_main_queue(), {
                         
                         let currentImg = ImgInfo(img: UIImage(data: d)!, url: url, date: date)
@@ -180,8 +193,8 @@ class SatelliteViewController: UIViewController {
                         
                         if self.count == 0 {
                             self.completeLoad = true
-                            //self.actInd.stopAnimating()
-                            //self.actInd.removeFromSuperview()
+                         
+                            //Set the time interval for switching the image
                             var timer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: Selector("displayImage"), userInfo: nil, repeats: true)
                             
                         }
@@ -194,12 +207,15 @@ class SatelliteViewController: UIViewController {
         }
     }
     
+    //The display image function
     func displayImage()
     {
         if ImgIndex == nil || ImgIndex == ImageHistory.count
         {
             ImgIndex = 0
         }
+        
+        //Set the date and image for view
         self.DateLabel.text = ImageHistory[ImgIndex!]!.date
         print(ImageHistory[ImgIndex!]?.date)
         self.Image.image = ImageHistory[ImgIndex!]!.img
