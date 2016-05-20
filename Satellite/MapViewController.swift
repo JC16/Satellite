@@ -28,6 +28,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let press = UILongPressGestureRecognizer(target: self, action: "longPress:")
         press.minimumPressDuration = 1.5
         mapView.addGestureRecognizer(press)
+        
+        ViewLocationBtn.alpha = 0
 
         // Do any additional setup after loading the view.
     }
@@ -57,6 +59,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             print(latitude)
             print(longtitude)
+            
+            ViewLocationBtn.alpha = 1
         }
     }
     

@@ -34,34 +34,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-ew-W60">
-                                <rect key="frame" x="0.0" y="515" width="600" height="85"/>
-                                <state key="normal" title="Button"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pxe-hj-1MR">
+                                <rect key="frame" x="0.0" y="64" width="600" height="498"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="495" id="P68-0u-uRY"/>
+                                </constraints>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-ew-W60">
+                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                                <state key="normal" title="View Location"/>
                                 <connections>
                                     <segue destination="Xpy-vh-wA4" kind="show" identifier="Details" id="e0g-Au-b6O"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pxe-hj-1MR">
-                                <rect key="frame" x="0.0" y="64" width="600" height="449"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="449" id="P68-0u-uRY"/>
-                                </constraints>
-                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pxe-hj-1MR" firstAttribute="centerY" secondItem="j0h-re-gmA" secondAttribute="centerY" constant="-11.5" id="4h6-6s-OZC"/>
+                            <constraint firstItem="pxe-hj-1MR" firstAttribute="centerY" secondItem="j0h-re-gmA" secondAttribute="centerY" constant="11.5" id="4h6-6s-OZC"/>
+                            <constraint firstItem="ceL-ew-W60" firstAttribute="leading" secondItem="j0h-re-gmA" secondAttribute="leadingMargin" constant="-20" id="4t7-4X-jcY"/>
+                            <constraint firstItem="6OK-hl-XfV" firstAttribute="top" secondItem="ceL-ew-W60" secondAttribute="bottom" id="Dgm-vt-2Pb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ceL-ew-W60" secondAttribute="trailing" constant="-20" id="K6t-aH-1Pu"/>
                             <constraint firstItem="pxe-hj-1MR" firstAttribute="leading" secondItem="j0h-re-gmA" secondAttribute="leading" id="L2v-eO-Eg8"/>
                             <constraint firstItem="pxe-hj-1MR" firstAttribute="trailing" secondItem="ceL-ew-W60" secondAttribute="trailing" id="cwF-QG-2az"/>
                             <constraint firstItem="ceL-ew-W60" firstAttribute="top" secondItem="pxe-hj-1MR" secondAttribute="bottom" constant="57" id="de0-0D-js0"/>
                             <constraint firstItem="pxe-hj-1MR" firstAttribute="top" secondItem="8iQ-Md-Xkz" secondAttribute="bottom" id="f05-st-awg"/>
                             <constraint firstItem="6OK-hl-XfV" firstAttribute="top" secondItem="ceL-ew-W60" secondAttribute="bottom" constant="27" id="hdu-Qx-AK5"/>
                             <constraint firstItem="6OK-hl-XfV" firstAttribute="top" secondItem="ceL-ew-W60" secondAttribute="bottom" id="sh8-Hw-TEE"/>
+                            <constraint firstItem="ceL-ew-W60" firstAttribute="top" secondItem="pxe-hj-1MR" secondAttribute="bottom" constant="14" id="wfS-fW-qdB"/>
                             <constraint firstAttribute="trailing" secondItem="pxe-hj-1MR" secondAttribute="trailing" id="ylj-lV-U0k"/>
                             <constraint firstItem="pxe-hj-1MR" firstAttribute="leading" secondItem="ceL-ew-W60" secondAttribute="leading" id="zpo-j5-WvQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="de0-0D-js0"/>
+                                <exclude reference="wfS-fW-qdB"/>
                                 <exclude reference="hdu-Qx-AK5"/>
                                 <exclude reference="sh8-Hw-TEE"/>
                             </mask>
@@ -90,10 +96,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uhc-Q5-P5n">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uhc-Q5-P5n">
                                 <rect key="frame" x="162" y="117" width="277" height="257"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-hb-kUa">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-hb-kUa">
                                         <rect key="frame" x="0.0" y="0.0" width="277" height="257"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="277" id="ciB-sC-Kvd"/>
@@ -107,7 +113,7 @@
                                     <constraint firstItem="8kN-hb-kUa" firstAttribute="top" secondItem="Uhc-Q5-P5n" secondAttribute="top" id="qwT-zT-7ws"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-1s-LVm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-1s-LVm">
                                 <rect key="frame" x="20" y="434" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="W9p-8c-Fkk"/>
