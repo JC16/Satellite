@@ -111,7 +111,7 @@ class SatelliteViewController: UIViewController {
         
     }
 
-    
+    //Fetch image from URL
     func fetchImage(urlString: String)
     {
         if let url = NSURL(string: urlString){
@@ -123,6 +123,7 @@ class SatelliteViewController: UIViewController {
                 }
                 else if let d = data {
                     print("loading image into the picture")
+                    //Set the imageview 
                     dispatch_async(dispatch_get_main_queue(), {
                         self.Image.image = UIImage(data: d)
                         self.Image.contentMode = UIViewContentMode.ScaleAspectFit
@@ -132,7 +133,8 @@ class SatelliteViewController: UIViewController {
                 
             })
             task.resume()
-        }    }
+        }
+    }
     
     
     /*
